@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects</title>
+
+    <!--Boxicons CDN-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--Custom CSS-->
+    <link rel="stylesheet" href="/css/stylesnewproject.css">
+
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <button class='logout-btn' type="button">Log out</button>
+
+        <div class="wrapper-image">
+            
+        </div>
+        <div class="wrapper-content">
+            
+            <div id="new-project-form">
+                <form id="project-form" enctype="multipart/form-data" method="POST">
+                    <input type="text" name="projectName" placeholder="Project Name" required>
+                    <input type="text" name="task" placeholder="Task" required>
+                    Due Date:
+                    <input type="date" name="dueDate" placeholder="Due Date" required>
+                    
+                    <!-- Radio buttons for "Assign To" options -->
+                    Assign To:
+                    <label for="assign-brian"><input type="radio" id="assign-brian" name="assign-to" value="Brian"> Brian</label>
+                    <label for="assign-konyi"><input type="radio" id="assign-konyi" name="assign-to" value="Konyi"> Konyi</label>
+                    <label for="assign-max"><input type="radio" id="assign-max" name="assign-to" value="Max"> Max</label>
+                    <!-- Add more radio buttons as needed -->
+
+                    <!-- File upload for task attachment -->
+                    <input type="file" name="attachment" accept=".pdf,.doc,.docx,.txt,.jpg,.jpeg,.png" multiple>
+
+                    <!-- Sub-project section -->
+                    <div id="sub-project-sections">
+                        <div class="sub-project-section">
+                            
+                        </div>
+                    </div>
+
+                    <!-- Button to add sub-project -->
+                    <button id="add-sub-project-btn" type="button">Add Sub Project</button>
+                    
+                    <button id="cp-btn" type="submit">Create Project</button>
+                       
+                </form>
+            </div>
+                
+        </div>            
+
+        
+    </div>
+    
+    <!--Script.js-->
+    <script src="js/newproject.js"></script>
+    
+</body>
+</html>
