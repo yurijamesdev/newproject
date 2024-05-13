@@ -23,6 +23,9 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         subProjectSections.appendChild(subProjectSection);
         subProjectCounter++;
+
+        // Call the function to extract sub-project data after adding a sub-project
+        extractSubProjectData();
     });
 
     form.addEventListener('submit', function(event) {
@@ -32,6 +35,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const subProjects = [];
 
         // Extract sub-project data from the form
+        extractSubProjectData();
+
+        // Rest of the code for form submission...
+    });
+
+    // Function to extract sub-project data
+    function extractSubProjectData() {
         document.querySelectorAll('.sub-project-section').forEach((subProjectSection) => {
             const subProjectName = subProjectSection.querySelector('.sub-project-name').value;
             const subTask = subProjectSection.querySelector('.sub-task').value;
@@ -48,26 +58,5 @@ document.addEventListener('DOMContentLoaded', function() {
                 subProjects.push(subProjectData);
             }
         });
-
-        // Add subProjects array to formData
-        formData.append('subProjects', JSON.stringify(subProjects));
-
-        // Send form data to server endpoint for saving
-        fetch('/saveProject', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = '/'; // Redirect if successful
-            } else {
-                throw new Error('Failed to create project'); // Throw an error to be caught below
-            }
-        })
-        .catch(error => {
-            console.error('Error creating project:', error);
-            // Handle error here, e.g., show an error message to the user
-        });
-    });
-
+    }
 });
